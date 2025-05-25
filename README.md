@@ -42,10 +42,13 @@ Lineer Regresyon: Basit ve yorumlanabilir bir modeldir, temel ilişkiyi anlamak 
 
 Random Forest Regressor: Karmaşık ilişkileri öğrenme yeteneği yüksek, güçlü bir ensemble modelidir.
 
+Neden Ridge Regresyon Hiperparametre Optimizasyonu Seçildi?
 
- Sınıflandırma Modelleri
+Bu projede Ridge regresyon modeli kullandım. Bu modelde alpha adında bir ayar (hiperparametre) vardır. Bu ayar, modelin veriye ne kadar sıkı uyacağını belirler. Eğer alpha doğru seçilmezse, model ya veriye çok fazla uyar (ezberler) ya da yeterince iyi öğrenemez.
 
-Random Forest Classifier: Yüksek başarı oranı ve overfitting'e karşı dayanıklılığıyla tercih edildi.
+Bu yüzden alpha değerini en iyi şekilde bulmak için GridSearchCV adlı yöntemi kullandım. Bu yöntem, farklı alpha değerlerini tek tek dener ve hangisinin en iyi sonucu verdiğini bulur. Böylece modelin hem eğitim verisinde hem de test verisinde daha iyi sonuç vermesi sağlanır.
+
+Kısacası, hiperparametre optimizasyonunu seçtim çünkü modelin doğruluğunu ve güvenilirliğini artırmak istedim.
 
 
 Model Performansları
@@ -136,6 +139,9 @@ Ridge regresyon (alpha = 0.1) elde edildi; bu da modelin aşırı öğrenme yapm
 Sonuç: Model sağlam, genelleme yeteneği yüksek ve LN_IC50 tahmininde güvenilir.
 
 
+ Sınıflandırma Modelleri
+
+Random Forest Classifier: Yüksek başarı oranı ve overfitting'e karşı dayanıklılığıyla tercih edildi.
  Sınıflandırma(Classification) Sonuçları (Random Forest Classifier):
 Accuracy (Doğruluk): 0.85
 Precision: 0.83
